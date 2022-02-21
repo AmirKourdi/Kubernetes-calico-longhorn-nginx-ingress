@@ -7,11 +7,7 @@
   shell: helm repo update
   become: true
 
-- name: Install longhorn (helm v2)
-  shell: helm install longhorn/longhorn --name longhorn --namespace longhorn-system
+- name: Install longhorn (helm v3)
+  shell: helm install longhorn longhorn/longhorn --namespace longhorn-system --create-namespace
   become: true
-
-#- name: Install longhorn (helm v3)
-#  shell: helm install longhorn longhorn/longhorn --namespace longhorn-system --create-namespace
-#  become: true
 
