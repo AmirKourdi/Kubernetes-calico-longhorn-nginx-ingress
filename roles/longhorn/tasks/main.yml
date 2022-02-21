@@ -1,0 +1,17 @@
+---
+- name: Add longhorn repo
+  shell: helm repo add longhorn https://charts.longhorn.io
+  become: true
+
+- name: Update repo
+  shell: helm repo update
+  become: true
+
+- name: Install longhorn (helm v2)
+  shell: helm install longhorn/longhorn --name longhorn --namespace longhorn-system
+  become: true
+
+#- name: Install longhorn (helm v3)
+#  shell: helm install longhorn longhorn/longhorn --namespace longhorn-system --create-namespace
+#  become: true
+
