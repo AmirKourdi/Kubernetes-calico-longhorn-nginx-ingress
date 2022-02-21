@@ -1,5 +1,8 @@
 ---
-- name: install helm with Internet
+- name: Online installaion helm, longhorn, nginx-ingress-controller
   hosts: all
   roles:
     - { role: helm }
+    - { role: longhorn }
+    - { role: nginx-ingress-controller }
+      
