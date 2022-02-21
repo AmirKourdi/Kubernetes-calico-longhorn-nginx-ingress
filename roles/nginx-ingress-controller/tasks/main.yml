@@ -1,0 +1,14 @@
+---
+- name: Add nginx repo
+  shell: helm repo add nginx-stable https://helm.nginx.com/stable
+  become: true
+
+- name: Update repo
+  shell: helm repo update
+  become: true
+
+- name: Install nginx-ingress as DaemonSet
+  shell: helm install nginx-ingress nginx-stable/nginx-ingress --set controller.service.type=NodePort --set controller.service.httpPort.nodePort=30000 --set controller.service.httpsPort.nodePort=30443 --set controller.kind=DaemonSet
+  become: true
+
+
