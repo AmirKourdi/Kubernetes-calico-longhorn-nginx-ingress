@@ -2,5 +2,9 @@ apiVersion: v1
 kind: Namespace
 metadata:
   name: docker-compose
+  labels:
+    network: docker-compose
 metadata:
   name: busybox
+  labels:
+    network: busybox
