@@ -1,0 +1,25 @@
+Install Kompose
+To install Kompose, you can follow the steps below, which are also outlined on the official website:
+
+# Linux
+curl -L https://github.com/kubernetes/kompose/releases/download/v1.22.0/kompose-linux-amd64 -o kompose
+
+# macOS
+curl -L https://github.com/kubernetes/kompose/releases/download/v1.22.0/kompose-darwin-amd64 -o kompose
+
+chmod +x kompose
+sudo mv ./kompose /usr/local/bin/kompose
+#Create Kubernetes Manifests with Kompose
+The next step is to create the Kubernetes manifests by running the command below at the same level as your docker-compose.yaml file.
+
+kompose convert
+You should then see this output:
+
+INFO Kubernetes file "X.yaml" created 
+INFO Kubernetes file "Y.yaml" created 
+INFO Kubernetes file "Z.yaml" created 
+INFO Kubernetes file "K.yaml" created 
+#Deploy Resources to Kubernetes Cluster
+Lastly, in order to declare the desired state in your cluster, you can create the Kubernetes resources by running the kubectl apply command and specifying all the files created by Kompose.
+
+kubectl apply -f X.yaml,Y.yaml, z.yaml,K.yaml
