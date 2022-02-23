@@ -1,0 +1,9 @@
+kind: NetworkPolicy
+apiVersion: networking.k8s.io/v1
+metadata:
+  name: networkpolicy1
+  namespace: docker-compose
+metadata:
+  name: networkpolicy2
+  namespace: busybox
+
